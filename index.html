@@ -91,17 +91,15 @@
         <div class="max-w-4xl mx-auto">
             <!-- Círculo da Imagem de Perfil -->
             <div class="mb-8 flex justify-center">
-                <!-- Alterações: Garantindo que o contêiner (div) defina o tamanho e o formato circular -->
+                <!-- Contêiner do Círculo: Define tamanho (w-48 h-48), formato (rounded-full) e corte (overflow-hidden) -->
                 <div class="profile-circle w-48 h-48 rounded-full overflow-hidden flex items-center justify-center p-1 aspect-square">
+                    <!-- CORREÇÃO DA TAG IMG COM ASPAS DUPLAS E SEM ESPAÇOS DESNECESSÁRIOS -->
                     <img 
                         src="foto_perfil.png" 
                         alt="Foto de Perfil de Rafael V.M." 
-                        
-                        <!-- CORREÇÃO CRÍTICA: A imagem deve preencher 100% do contêiner e usar object-cover para o corte circular sem distorção. Nenhuma outra tag de estilo aqui. -->
                         class="w-full h-full rounded-full object-cover" 
-                        
                         onerror="this.onerror=null; this.src='https://placehold.co/192x192/ffb800/0f1c3a?text=RVM';"
-                    >
+                    />
                 </div>
             </div>
 
