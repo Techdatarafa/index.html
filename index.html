@@ -22,10 +22,9 @@
             background-color: #1a294b;
         }
 
-        /* CORREÇÃO CRÍTICA DO TÍTULO PRINCIPAL */
-        /* Força a redução do tamanho da fonte, usando um tamanho pequeno para o desktop */
+        /* CORREÇÃO CRÍTICA DO TÍTULO PRINCIPAL (Para garantir a redução solicitada) */
         .h1-main-title {
-            /* Tamanho para desktop: 2rem (32px). Era 6rem (96px). Isso é uma redução de ~66%, garantindo que fique muito menor. */
+            /* Tamanho reduzido para desktop */
             font-size: 2.5rem; 
         }
 
@@ -35,10 +34,10 @@
                 font-size: 1.5rem; /* 24px no mobile */
             }
         }
-        /* FIM DA CORREÇÃO CRÍTICA */
+        /* FIM DA CORREÇÃO CRÍTICA DO TÍTULO */
 
 
-        /* 1. ESTILO PARA BOTÕES CTA (Completamente preenchidos, usados no Hero e Contato final) */
+        /* 1. ESTILO PARA BOTÕES CTA */
         .nav-link-cta {
             background-color: #ffb800; /* Amarelo Laranja */
             color: #0f1c3a; /* Texto Azul Escuro */
@@ -96,14 +95,17 @@
                     <img 
                         src="foto_perfil.png" 
                         alt="Foto de Perfil de Rafael V.M." 
-                        class="w-full h-full object-cover object-top rounded-full"
+                        
+                        <!-- ALTERAÇÃO CRÍTICA: object-cover foi trocado por object-contain -->
+                        class="w-full h-full object-contain rounded-full"
+                        
                         style="width: 192px; height: 192px;"
                         onerror="this.onerror=null; this.src='https://placehold.co/192x192/ffb800/0f1c3a?text=RVM';"
                     >
                 </div>
             </div>
 
-            <!-- TÍTULO PRINCIPAL: Aplicação da classe de correção forçada -->
+            <!-- TÍTULO PRINCIPAL -->
             <h1 class="h1-main-title font-extrabold mb-4 leading-tight"> 
                 Analista de Sistemas em Formação & 
                 <span class="text-[#ffb800]">Solucionador de Problemas</span>
@@ -122,7 +124,7 @@
                 </a>
             </div>
             
-            <!-- Botão CTA na seção Hero: USA O ESTILO COMPLETO DE CTA -->
+            <!-- Botão CTA na seção Hero -->
             <a href="#contato" class="nav-link-cta text-lg sm:text-xl py-3 px-8 rounded-full inline-block">Fale Comigo</a>
         </div>
     </section>
@@ -184,7 +186,6 @@
                     <h3 class="text-xl font-semibold">Cloud Computing</h3>
                     <p class="text-sm text-gray-400">Conceitos AWS/Azure/GCP</p>
                 </div>
-                <!-- Adicionar mais competências aqui -->
             </div>
         </div>
     </section>
