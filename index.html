@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ESSENCIAL: Garante que a página se adapte à largura do dispositivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Rafael V.M. - Analista de Sistemas em Formação</title>
     
     <!-- Carregamento do Tailwind CSS e Fontes -->
@@ -23,14 +24,14 @@
             background-color: #1a294b;
         }
 
-        /* CORREÇÃO CRÍTICA DO TÍTULO PRINCIPAL */
+        /* CORREÇÃO CRÍTICA DO TÍTULO PRINCIPAL (ajustado para mobile) */
         .h1-main-title {
-            font-size: 2.5rem; 
+            font-size: 2.5rem; /* Padrão Desktop */
         }
 
         @media (max-width: 640px) {
             .h1-main-title {
-                font-size: 1.5rem; 
+                font-size: 1.75rem; /* Reduzido para Mobile (3xl) */
             }
         }
         /* FIM DA CORREÇÃO CRÍTICA DO TÍTULO */
@@ -67,11 +68,8 @@
         /* ----------------------------------------------------- */
         /* CORREÇÃO DA ALTURA FIXA PARA CARTÕES DE PROJETO (PX)  */
         /* ----------------------------------------------------- */
-        /* Usar `px` garante que o min-height não seja afetado pelo "text-zoom" do navegador.
-           Adicionei a classe flex para garantir que o conteúdo fique sempre no topo.
-        */
         .project-card-fixed {
-            min-height: 220px; /* Defina o valor em pixels desejado */
+            min-height: 220px; 
             display: flex;
             flex-direction: column;
         }
@@ -83,11 +81,12 @@
     
     <!-- Cabeçalho / Navegação -->
     <header class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-md bg-[#0f1c3a] shadow-lg">
+        <!-- Navegação Responsiva: px-4 no mobile, sm:px-6 no tablet/desktop -->
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Logo/Nome -->
             <a href="#home" class="text-3xl font-extrabold text-[#ffb800]">Rafael V.M.</a>
 
-            <!-- Links de Navegação -->
+            <!-- Links de Navegação (Hidden em mobile, visíveis a partir de 'sm') -->
             <div class="flex items-center space-x-2 sm:space-x-4">
                 <a href="#sobre" class="px-4 py-2 rounded-full font-semibold transition-all duration-300 ease-in-out nav-link-hover hidden sm:inline-block">Sobre</a>
                 <a href="#competencias" class="px-4 py-2 rounded-full font-semibold transition-all duration-300 ease-in-out nav-link-hover hidden sm:inline-block">Competências</a>
@@ -103,11 +102,10 @@
         <div class="max-w-4xl mx-auto">
             <!-- Círculo da Imagem de Perfil -->
             <div class="mb-8 flex justify-center">
-                <!-- Contêiner do Círculo: Define tamanho (w-45 h-45), formato (rounded-full) e corte (overflow-hidden) -->
                 <div class="profile-circle w-40 h-40 rounded-full overflow-hidden flex items-center justify-center p-1 aspect-square">
-                    <!-- CORREÇÃO DA TAG IMG COM ASPAS DUPLAS E SEM ESPAÇOS DESNECESSÁRIOS -->
+                    <!-- CORREÇÃO: Usando um asset sugerido e classe `object-cover` -->
                     <img 
-                        src="foto_perfil.png" 
+                        src="image_745d40.png" 
                         alt="Foto de Perfil de Rafael V.M." 
                         class="w-full h-full object-cover object-top rounded-full" 
                         onerror="this.onerror=null; this.src='https://placehold.co/192x192/ffb800/0f1c3a?text=RVM';"
@@ -115,11 +113,12 @@
                 </div>
             </div>
 
-            <!-- TÍTULO PRINCIPAL -->
+            <!-- TÍTULO PRINCIPAL (tamanho ajustado via CSS customizado) -->
             <h1 class="h1-main-title font-extrabold mb-4 leading-tight"> 
                 Analista de Sistemas em Formação & 
                 <span class="text-[#ffb800]">Solucionador de Problemas</span>
             </h1>
+            <!-- Responsividade do parágrafo: text-xl no mobile, sm:text-2xl no desktop -->
             <p class="text-xl sm:text-2xl mb-8 font-light max-w-2xl mx-auto text-gray-300">
                 Paixão por transformar requisitos complexos em soluções de software estruturadas e eficientes.
             </p>
@@ -134,6 +133,7 @@
             <h2 class="text-4xl font-bold text-center mb-12 border-b-4 border-[#ffb800] pb-2 inline-block mx-auto">
                 Sobre mim
             </h2>
+            <!-- Grid: Divide em 2 colunas a partir de 'md' -->
             <div class="grid md:grid-cols-2 gap-12 text-lg">
                 <div>
                     <h3 class="text-2xl font-semibold text-[#ffb800] mb-4">Minha História</h3>
@@ -147,16 +147,15 @@
                 <div>
                     <h3 class="text-2xl font-semibold text-[#ffb800] mb-4">Abordagem (ADS)</h3>
                     <p class="mb-0">
-                    Minha metodologia de trabalho se baseia em três pilares:</p>
+                    Minha metodologia de trabalho se baseia em três pilares:
                     </p>
                     <!-- LISTA DOS PILARES -->
-                    <!-- Removendo margem inferior (mb-0) e aplicando pequena margem superior (mt-1) -->
                     <ul class="list-none pl-0 mt-1 space-y-1 mb-0">
                         <li>- 1º) Análise profunda do problema;</li>
                         <li>- 2º) Detalhamento meticuloso dos requisitos;</li>
                         <li>- 3º) Implementação da Solução com foco em eficiência e inovação.</li>
                     </ul>
-                    <!-- PARÁGRAFO DE CONCLUSÃO (mt-[-0.5rem]: Margem negativa para forçar o backspace e eliminar o espaço residual) -->
+                    <!-- Margem negativa para unir os parágrafos -->
                     <p class="mt-[-0.5rem]"> 
                         Essa abordagem garante que cada projeto que eu encaro seja construído sobre uma base sólida, minimizando riscos e maximizando a entrega de valor.
                     </p>
@@ -171,27 +170,28 @@
             <h2 class="text-4xl font-bold text-center mb-12 border-b-4 border-[#ffb800] pb-2 inline-block mx-auto">
                 Minhas Competências
             </h2>
-            <!-- Conteúdo Placeholder para as Competências -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center">
-                <div class="p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <i class="fas fa-code text-5xl text-[#ffb800] mb-4"></i>
-                    <h3 class="text-xl font-semibold">Desenvolvimento (Full-Stack)</h3>
-                    <p class="text-sm text-gray-400">Java, Python, JavaScript, SQL</p>
+            <!-- Grid Responsivo: 2 colunas em mobile, 3 em 'md', 4 em 'lg' -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
+                <!-- Ajustando paddings e tamanhos de ícone/texto para mobile -->
+                <div class="p-4 sm:p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-code text-4xl sm:text-5xl text-[#ffb800] mb-2 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-xl font-semibold">Desenvolvimento (Full-Stack)</h3>
+                    <p class="text-xs text-gray-400">Java, Python, JavaScript, SQL</p>
                 </div>
-                <div class="p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <i class="fas fa-database text-5xl text-[#ffb800] mb-4"></i>
-                    <h3 class="text-xl font-semibold">Modelagem de Dados</h3>
-                    <p class="text-sm text-gray-400">SQL Server, Firestore, Design ER</p>
+                <div class="p-4 sm:p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-database text-4xl sm:text-5xl text-[#ffb800] mb-2 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-xl font-semibold">Modelagem de Dados</h3>
+                    <p class="text-xs text-gray-400">SQL Server, Firestore, Design ER</p>
                 </div>
-                <div class="p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <i class="fas fa-project-diagram text-5xl text-[#ffb800] mb-4"></i>
-                    <h3 class="text-xl font-semibold">Metodologias Ágeis</h3>
-                    <p class="text-sm text-gray-400">Scrum e Kanban</p>
+                <div class="p-4 sm:p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-project-diagram text-4xl sm:text-5xl text-[#ffb800] mb-2 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-xl font-semibold">Metodologias Ágeis</h3>
+                    <p class="text-xs text-gray-400">Scrum e Kanban</p>
                 </div>
-                <div class="p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <i class="fas fa-cloud text-5xl text-[#ffb800] mb-4"></i>
-                    <h3 class="text-xl font-semibold">Cloud Computing</h3>
-                    <p class="text-sm text-gray-400">Conceitos AWS/Azure/GCP</p>
+                <div class="p-4 sm:p-6 rounded-lg bg-section shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <i class="fas fa-cloud text-4xl sm:text-5xl text-[#ffb800] mb-2 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-xl font-semibold">Cloud Computing</h3>
+                    <p class="text-xs text-gray-400">Conceitos AWS/Azure/GCP</p>
                 </div>
             </div>
         </div>
@@ -203,42 +203,50 @@
             <h2 class="text-4xl font-bold text-center mb-12 border-b-4 border-[#ffb800] pb-2 inline-block mx-auto">
                 Recomendações
             </h2>
-            <!-- Conteúdo Placeholder para Recomendações -->
+            <!-- Grid: Divide em 3 colunas a partir de 'md' -->
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Garantindo tamanho de fonte legível em mobile (text-sm em mobile, text-base padrão) -->
                 <div class="p-6 rounded-lg bg-[#0f1c3a] shadow-xl border-t-4 border-[#ffb800]">
-                    <p class="italic mb-4">"O Rafael demonstrou grande capacidade de análise e detalhamento. Seu projeto superou as expectativas em termos de robustez e organização."</p>
+                    <p class="italic mb-4 text-sm sm:text-base">"O Rafael demonstrou grande capacidade de análise e detalhamento. Seu projeto superou as expectativas em termos de robustez e organização."</p>
                     <p class="font-semibold text-[#ffb800]">- Professor X, Faculdade Y</p>
                 </div>
                 <div class="p-6 rounded-lg bg-[#0f1c3a] shadow-xl border-t-4 border-[#ffb800]">
-                    <p class="italic mb-4">"Seu foco na solução de problemas, aplicando a abordagem ADS, foi essencial para otimizar nossos processos internos. Um profissional de alto potencial."</p>
+                    <p class="italic mb-4 text-sm sm:text-base">"Seu foco na solução de problemas, aplicando a abordagem ADS, foi essencial para otimizar nossos processos internos. Um profissional de alto potencial."</p>
                     <p class="font-semibold text-[#ffb800]">- Colega de Equipe Z, Empresa W</p>
                 </div>
                 <div class="p-6 rounded-lg bg-[#0f1c3a] shadow-xl border-t-4 border-[#ffb800]">
-                    <p class="italic mb-4">"A comunicação é um de seus pontos fortes. Conseguiu traduzir requisitos técnicos complexos de forma clara para o time de negócios."</p>
+                    <p class="italic mb-4 text-sm sm:text-base">"A comunicação é um de seus pontos fortes. Conseguiu traduzir requisitos técnicos complexos de forma clara para o time de negócios."</p>
                     <p class="font-semibold text-[#ffb800]">- Mentora A, Programa B</p>
                 </div>
             </div>
         </div>
     </section>
-        <!-- Seção Projetos (Placeholder) -->
-    <section id="projetos" class="py-12 mt-16">
-            <h3 class="text-3xl font-bold text-center mb-10">Meus Projetos (Exemplos Fictícios)</h3>
+        
+    <!-- Seção Projetos -->
+    <section id="projetos" class="py-20 px-4 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-12 border-b-4 border-[#ffb800] pb-2 inline-block mx-auto">Meus Projetos (Exemplos Fictícios)</h3>
+            
+            <!-- Grid: Divide em 3 colunas a partir de 'md', com a classe project-card-fixed -->
             <div class="grid md:grid-cols-3 gap-8 items-stretch">
-                <!-- Projeto 1: Sistema de Gerenciamento --><div class="p-6 bg-slate-800 rounded-xl shadow-lg border border-slate-700 h-full transition-transform duration-300 hover:scale-[1.02]">
+                <!-- Projeto 1: Sistema de Gerenciamento -->
+                <div class="p-6 bg-slate-800 rounded-xl shadow-lg border border-slate-700 h-full project-card-fixed transition-transform duration-300 hover:scale-[1.02]">
                     <h4 class="text-xl font-semibold text-amber-400 mb-2">Sistema de Gerenciamento de Estoque (SGE)</h4>
                     <p class="text-slate-400 mb-4">
                         Análise completa, modelagem de banco de dados e prototipação de um sistema CRUD para controle de inventário em tempo real.
                     </p>
                     <span class="text-xs font-medium bg-amber-900/50 text-amber-300 p-1 rounded-full">Análise de Requisitos</span>
                 </div>
-                <!-- Projeto 2: Página Responsiva --><div class="p-6 bg-slate-800 rounded-xl shadow-lg border border-slate-700 h-full transition-transform duration-300 hover:scale-[1.02]">
+                <!-- Projeto 2: Dashboard de Vendas -->
+                <div class="p-6 bg-slate-800 rounded-xl shadow-lg border border-slate-700 h-full project-card-fixed transition-transform duration-300 hover:scale-[1.02]">
                     <h4 class="text-xl font-semibold text-amber-400 mb-2">Dashboard de Vendas (Power BI)</h4>
                     <p class="text-slate-400 mb-4">
                         Criação de dashboards interativos no Power BI para monitoramento de KPIs de vendas e performance operacional.
                     </p>
                     <span class="text-xs font-medium bg-amber-900/50 text-amber-300 p-1 rounded-full">Business Intelligence</span>
                 </div>
-                <!-- Projeto 3: Documentação --><div class="p-6 bg-slate-800 rounded-xl shadow-lg border border-slate-700 h-full transition-transform duration-300 hover:scale-[1.02]">
+                <!-- Projeto 3: Prototipação de Interface -->
+                <div class="p-6 bg-slate-800 rounded-xl shadow-lg border border-slate-700 h-full project-card-fixed transition-transform duration-300 hover:scale-[1.02]">
                     <h4 class="text-xl font-semibold text-amber-400 mb-2">Prototipação de Interface (Figma)</h4>
                     <p class="text-slate-400 mb-4">
                         Elaboração de Wireframes e Mockups de alta fidelidade para o SGE, focando na usabilidade (UX/UI).
@@ -246,33 +254,37 @@
                     <span class="text-xs font-medium bg-amber-900/50 text-amber-300 p-1 rounded-full">Modelagem e UX/UI</span>
                 </div>
             </div>
-        </section>
-    <!-- Seção Contato (CTA Final) - ATUALIZADO COM ÍCONES -->
-    <section id="contato" class="py-8 px-3 sm:px-6 text-center bg-[#0f1c3a]">
+        </div>
+    </section>
+
+    <!-- Seção Contato (CTA Final) -->
+    <section id="contato" class="py-16 px-4 sm:px-8 text-center bg-[#0f1c3a]">
         <div class="max-w-2xl mx-auto">
             <h2 class="text-3xl font-bold mb-4">Pronto para Começar um Projeto?</h2>
-            <p class="text-center text-xl mb-12 text-gray-300">Se você tem uma ideia, um problema a ser resolvido ou apenas quer trocar uma ideia sobre dados e sistemas, entre em contato!</p>
+            <!-- Responsividade do parágrafo: text-lg no mobile, text-xl padrão -->
+            <p class="text-center text-lg sm:text-xl mb-12 text-gray-300">Se você tem uma ideia, um problema a ser resolvido ou apenas quer trocar uma ideia sobre dados e sistemas, entre em contato!</p>
 
-<!-- Links de Contato Centralizados e com Ícones -->
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-12 text-2xl">
+<!-- Links de Contato: flex-col em mobile (empilha), sm:flex-row em desktop (lado a lado) -->
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-12 text-lg sm:text-2xl">
                 <!-- E-mail -->
                 <a href="mailto:montechiesi.data@gmail.com" class="flex items-center text-white hover:text-[#ffb800] transition-colors duration-300">
-                    <i class="fas fa-envelope text-4xl mr-3"></i>
-                    <span>montechiesi.data@gmail.com</span>
+                    <i class="fas fa-envelope text-3xl sm:text-4xl mr-3"></i>
+                    <span>E-mail</span> <!-- Alterado para E-mail para ser mais conciso no mobile -->
                 </a>
                 <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/rafaelmontechiesi/" target="_blank" class="flex items-center text-white hover:text-[#ffb800] transition-colors duration-300">
-                    <i class="fab fa-linkedin-in text-4xl mr-3"></i>
-                    <span>rafaelmontechiesi</span>
+                    <i class="fab fa-linkedin-in text-3xl sm:text-4xl mr-3"></i>
+                    <span>LinkedIn</span>
                 </a>
             </div>
         </div>
     </section>
+    
     <!-- Rodapé -->
     <footer class="bg-[#0f1c3a] border-t border-gray-700 py-8 px-4 sm:px-8">
-        <!-- CORREÇÃO: Removida a aspa extra no class para garantir que o estilo seja aplicado -->
-        <div class="text-lg text-slate-300 mb-6">
-            <p>© 2025 Rafael V.M. Todos os direitos reservados.</p>
+        <!-- Responsividade do texto: text-sm no mobile, text-lg padrão -->
+        <div class="text-sm sm:text-lg text-slate-300 mb-6 text-center">
+            <p>&copy; 2025 Rafael V.M. Todos os direitos reservados.</p>
             <p>Portfólio de Análise e Desenvolvimento de Sistemas.</p>
         </div>
     </footer>
